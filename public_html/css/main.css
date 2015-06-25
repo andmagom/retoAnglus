@@ -27,9 +27,9 @@
     font-family: 'raleway-regular';
     src: url('../fonts/raleway-regular.eot');
     src: url('../fonts/raleway-regular.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/raleway-regular.woff') format('woff'),
-         url('../fonts/raleway-regular.ttf') format('truetype'),
-         url('../fonts/raleway-regular.svg#ralewayregular') format('svg');
+        url('../fonts/raleway-regular.woff') format('woff'),
+        url('../fonts/raleway-regular.ttf') format('truetype'),
+        url('../fonts/raleway-regular.svg#ralewayregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -40,9 +40,9 @@
     font-family: 'raleway-bold';
     src: url('../fonts/raleway-bold.eot');
     src: url('../fonts/raleway-bold.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/raleway-bold.woff') format('woff'),
-         url('../fonts/raleway-bold.ttf') format('truetype'),
-         url('../fonts/raleway-bold.svg#ralewaybold') format('svg');
+        url('../fonts/raleway-bold.woff') format('woff'),
+        url('../fonts/raleway-bold.ttf') format('truetype'),
+        url('../fonts/raleway-bold.svg#ralewaybold') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -53,9 +53,9 @@
     font-family: 'raleway-semibold';
     src: url('../fonts/raleway-semibold.eot');
     src: url('../fonts/raleway-semibold.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/raleway-semibold.woff') format('woff'),
-         url('../fonts/raleway-semibold.ttf') format('truetype'),
-         url('../fonts/raleway-semibold.svg#ralewaysemibold') format('svg');
+        url('../fonts/raleway-semibold.woff') format('woff'),
+        url('../fonts/raleway-semibold.ttf') format('truetype'),
+        url('../fonts/raleway-semibold.svg#ralewaysemibold') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -104,7 +104,7 @@ h5, h6          { font-weight: bolder }
 .clearfix:after {  
     clear: both;  
 }  
- 
+
 .clearfix {  
     *zoom: 1;  
 }
@@ -219,8 +219,8 @@ h5, h6          { font-weight: bolder }
         background-position: -124px 0;
     }
 
-    header ul.social li a.rss,
-    header ul.social li a.rss:hover{
+    header ul.social li a.site,
+    header ul.social li a.site:hover{
         background-position: -155px 0;
     }
 
@@ -561,7 +561,7 @@ h5, h6          { font-weight: bolder }
         float: right;
         margin: 30px 30px 0 0;
     }
-    
+
     header nav{
         width: 100%;
         position: absolute;
@@ -613,7 +613,7 @@ h5, h6          { font-weight: bolder }
 }
 
 @media (max-width:550px){
-     .main .work{
+    .main .work{
         width: 100%;
     }
 }
