@@ -312,21 +312,6 @@ h5, h6          { font-weight: bolder }
     opacity: 0;
 }
 
-
-.main .work a:hover .caption{
-    opacity: 1;
-}
-
-
-.work .caption .work_title{
-    display: block;
-    width: 100%;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    margin-top: -40px;
-}
-
 .main .work .caption h1{
     position: relative;
     display: inline-block;
