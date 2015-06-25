@@ -5,15 +5,7 @@ var FPS = 30;
 var imgPlayer="img/game/player.png";
 
 
-
-
-var scene = sjs.Scene({w:CANVAS_WIDTH, h:CANVAS_HEIGHT});
-
-var canvasElement = $("<canvas width='" + CANVAS_WIDTH +
-        "' height='" + CANVAS_HEIGHT + "'></canvas>");
-var canvas = canvasElement.get(0).getContext("2d");
-
-
+var scene = sjs.Scene({w:CANVAS_WIDTH, h:CANVAS_HEIGHT,parent:document.getElementById("game1")});
 
 
 setInterval(function () {
@@ -22,7 +14,6 @@ setInterval(function () {
 }, 1000 / FPS);
 
 function draw() {
-    canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     player.draw();
 }
 
@@ -87,11 +78,9 @@ var player = {
         }
         //Limito que el jugador no pueda salir del borde del juego.
         player.x = player.x.clamp(0, CANVAS_WIDTH - this.sprite.w);
-        player.y = player.y.clamp(7, CANVAS_HEIGHT - this.sprite.w);
+        player.y = player.y.clamp(7, CANVAS_HEIGHT - this.sprite.w+6);
         this.sprite.setX(player.x);
         this.sprite.setY(player.y);
         
     }
 };
-
-canvasElement.appendTo("game1");
