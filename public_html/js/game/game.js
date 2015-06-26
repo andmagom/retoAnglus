@@ -197,7 +197,7 @@ $(document).ready(function () {
 
     player.sprite.setY(CANVAS_WIDTH);
 
-    $.getJSON("json/data.json", function (data) {
+    $.getJSON("http://reto.anglus.co/data.json", function (data) {
         arrayAnimalsJson = data.words;
         createAnimals();
         setPoints();
