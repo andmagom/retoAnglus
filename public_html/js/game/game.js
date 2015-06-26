@@ -5,13 +5,18 @@ var FPS = 30;
 var imgPlayer = "img/game/player.png";
 var arrayAnimalsJson = [];
 var animalsSprite = sjs.List();
-
+var animalString =[];
+var point=0;
+var level=0;
+var target="";
+var play=true;
 
 
 var scene = sjs.Scene({w: CANVAS_WIDTH, h: CANVAS_HEIGHT, parent: document.getElementById("game1")});
+
 var input  = scene.Input();
 
-setInterval(function () {
+var interval = setInterval(function () {
     collision();
     update();
     draw();
@@ -25,22 +30,58 @@ function draw() {
 function update() {
     player.update();
 }
+function drawString()
+{
+    if(play)
+    {
+         $("#target").html("<p>" +animalString[level]+"</p>");
+         $("#point").html("<p>"+point+"</p>");
+    }else
+    {
+        $("#target").html("<p>Game Over</p>");
+    }
+   
+}
 
 function collision()
 {
     var collision = player.sprite.collidesWithArray(animalsSprite);
     if(collision)
     {
-        //alert("Ah chocado con: "+collision);
+        var lista = animalsSprite.list;
+        for(var i=0; i < lista.length ; i++)
+        {
+            if(collision == lista[i])
+            {
+                if(i==level)
+                {
+                    point+=10;
+                    level++;
+                    if(level>=lista.length)
+                    {
+                        play=false;
+                    }
+                }else
+                {
+                    point-=10;
+                }
+                break;
+            }
+        }
         player.x=0;
-        player.y=0;
+        player.y=CANVAS_HEIGHT;
         player.draw();
+        drawString();
+    }
+    if(!play)
+    {
+        clearInterval(interval);
     }
 }
 
 var player = {
     x: 0,
-    y: 0,
+    y: CANVAS_HEIGHT,
     sprite: scene.Sprite(imgPlayer),
     draw: function () {
         this.sprite.update();
@@ -112,6 +153,7 @@ function createAnimals()
         var img = this.image;
         var animal =  scene.Sprite(img);
         animalsSprite.add(animal);
+        animalString.push(name);
         xAni+=50;
     });
 }
@@ -119,12 +161,24 @@ function createAnimals()
 
 function drawAnimals() {
     var x = 10;
+    var y = 10;
+    var y2= 200;
+    var aux=0;
     var ani;
     while (ani = animalsSprite.iterate()) {
         ani.setX(x);
-        ani.setY(100);
+        if(aux==0)
+        {
+            ani.setY(y);
+            aux=1;
+        }else
+        {
+            ani.setY(y2);
+            aux=0;
+        }
+        
         ani.update();
-        x += 170;
+        x += 110;
     }
 
 }
@@ -135,6 +189,7 @@ $(document).ready(function () {
         arrayAnimalsJson = data.words;
         createAnimals();
         drawAnimals();
+        drawString();
     });
 
 });

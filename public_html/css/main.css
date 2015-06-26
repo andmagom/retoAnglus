@@ -466,3 +466,50 @@ h5, h6          { font-weight: bolder }
         width: 100%;
     }
 }
+
+.target2
+{
+    border-radius: 30px 30px 30px 30px;
+    -moz-border-radius: 30px 30px 30px 30px;
+    -webkit-border-radius: 30px 30px 30px 30px;
+    border: 0px solid #000000;
+    background-color: #034a96;
+    width: 150px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.target2 p
+{
+    font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15px;
+        color:white;
+        text-align: center;
+}
+
+.point
+{
+    border-radius: 30px 30px 30px 30px;
+    -moz-border-radius: 30px 30px 30px 30px;
+    -webkit-border-radius: 30px 30px 30px 30px;
+    border: 0px solid #000000;
+    background-color: #034a96;
+    width: 80px;
+}
+
+.point p
+{
+    font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15px;
+        color:white;
+        text-align: center;
+}
