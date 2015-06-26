@@ -34,7 +34,14 @@ function drawString()
         $("#point").html("<p>" + point + "</p>");
     } else
     {
-        $("#target").html("<p>Game Over</p>");
+        if(point>0)
+        {
+            $("#target").html("<p>Excellent!</p>");
+        }else
+        {
+            $("#target").html("<p>Game Over</p>");
+        }
+        
     }
 
 }
@@ -49,23 +56,26 @@ function collision()
         {
             if (collision == lista[i])
             {
-                if (i == level)
+                if (i == 0)
                 {
                     point += 10;
                     level++;
-                    if (level >= lista.length)
+                    animalsSprite.remove(collision);
+                    collision.remove();
+                    if (lista.length==0)
                     {
                         play = false;
                     }
                 } else
                 {
+                    player.x=0;
+                    player.y=CANVAS_HEIGHT;
+                    player.update();
                     point -= 10;
                 }
                 break;
             }
         }
-        player.x = 0;
-        player.y = CANVAS_HEIGHT;
         player.draw();
         drawString();
     }
@@ -153,7 +163,8 @@ function createAnimals()
 }
 ;
 
-function drawAnimals() {
+function setPoints()
+{
     var x = 10;
     var y = 10;
     var y2 = 200;
@@ -170,21 +181,26 @@ function drawAnimals() {
             ani.setY(y2);
             aux = 0;
         }
-
-        ani.update();
         x += CANVAS_WIDTH / animalString.length;
     }
 
 }
+function drawAnimals() {
+    var ani;
+    while (ani = animalsSprite.iterate()) {
+        ani.update();
+    }
+}
 ;
 var interval;
 $(document).ready(function () {
-    
+
     player.sprite.setY(CANVAS_WIDTH);
-    
+
     $.getJSON("json/data.json", function (data) {
         arrayAnimalsJson = data.words;
         createAnimals();
+        setPoints();
         drawAnimals();
         drawString();
     });
