@@ -189,9 +189,6 @@ $(document).ready(function () {
         drawString();
     });
 
-
-
-
     interval = setInterval(function () {
         draw();
         collision();

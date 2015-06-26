@@ -326,33 +326,6 @@ h5, h6          { font-weight: bolder }
     border-top: 1px solid #bfbbbb;
 }
 
-/*  Contact page map  */
-#map .map_adresse{
-    font-family: 'raleway-regular', arial;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: 1px;
-}
-
-#map .map_address,
-#map .map_tel{
-    padding: 5px;
-}
-
-#map .map_address .address,
-#map .map_tel .tel{
-    font-family: 'raleway-bold', arial;
-    font-weight: bolder;
-}
-
-#map img{
-    max-width: none;
-}
-
-
-
-
-
 
 
 /*  Tooltip  */
@@ -521,4 +494,24 @@ h5, h6          { font-weight: bolder }
      border-style: solid;
     border-color: #98bf21;
     border-width: 5px;
+}
+
+.GeneratedText {
+    font-family:'Times New Roman', serif;
+    font-size:30px;
+    letter-spacing:0.2em;
+    line-height:1.3em;
+    color:#000000;
+    background-color:#FFFFFF;
+    padding:1em;
+}
+
+pre{
+     font-family:'Times New Roman', serif;
+    font-size:20px;
+    letter-spacing:0.2em;
+    line-height:1.3em;
+    color:#000000;
+    background-color:#FFFFFF;
+    padding:1em;
 }
