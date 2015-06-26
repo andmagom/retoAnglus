@@ -5,26 +5,22 @@ var FPS = 30;
 var imgPlayer = "img/game/player.png";
 var arrayAnimalsJson = [];
 var animalsSprite = sjs.List();
-var animalString =[];
-var point=0;
-var level=0;
-var target="";
-var play=true;
+var animalString = [];
+var point = 0;
+var level = 0;
+var target = "";
+var play = true;
 
 
 var scene = sjs.Scene({w: CANVAS_WIDTH, h: CANVAS_HEIGHT, parent: document.getElementById("game1")});
 
-var input  = scene.Input();
+var input = scene.Input();
 
-var interval = setInterval(function () {
-    collision();
-    update();
-    draw();
-}, 1000/FPS );
+
 
 function draw() {
     drawAnimals();
-     player.draw();
+    player.draw();
 }
 
 function update() {
@@ -32,48 +28,48 @@ function update() {
 }
 function drawString()
 {
-    if(play)
+    if (play)
     {
-         $("#target").html("<p>" +animalString[level]+"</p>");
-         $("#point").html("<p>"+point+"</p>");
-    }else
+        $("#target").html("<p>" + animalString[level] + "</p>");
+        $("#point").html("<p>" + point + "</p>");
+    } else
     {
         $("#target").html("<p>Game Over</p>");
     }
-   
+
 }
 
 function collision()
 {
     var collision = player.sprite.collidesWithArray(animalsSprite);
-    if(collision)
+    if (collision)
     {
         var lista = animalsSprite.list;
-        for(var i=0; i < lista.length ; i++)
+        for (var i = 0; i < lista.length; i++)
         {
-            if(collision == lista[i])
+            if (collision == lista[i])
             {
-                if(i==level)
+                if (i == level)
                 {
-                    point+=10;
+                    point += 10;
                     level++;
-                    if(level>=lista.length)
+                    if (level >= lista.length)
                     {
-                        play=false;
+                        play = false;
                     }
-                }else
+                } else
                 {
-                    point-=10;
+                    point -= 10;
                 }
                 break;
             }
         }
-        player.x=0;
-        player.y=CANVAS_HEIGHT;
+        player.x = 0;
+        player.y = CANVAS_HEIGHT;
         player.draw();
         drawString();
     }
-    if(!play)
+    if (!play)
     {
         clearInterval(interval);
     }
@@ -90,7 +86,7 @@ var player = {
     {
         var right = false;
         var left = false;
-  
+
         if (input.keyboard.left) {
             player.x -= 2;
             left = true;
@@ -147,14 +143,12 @@ var player = {
 
 function createAnimals()
 {
-    var xAni=10;
     $.each(arrayAnimalsJson, function ( ) {
         var name = this.name;
         var img = this.image;
-        var animal =  scene.Sprite(img);
+        var animal = scene.Sprite(img);
         animalsSprite.add(animal);
         animalString.push(name);
-        xAni+=50;
     });
 }
 ;
@@ -162,34 +156,47 @@ function createAnimals()
 function drawAnimals() {
     var x = 10;
     var y = 10;
-    var y2= 200;
-    var aux=0;
+    var y2 = 200;
+    var aux = 0;
     var ani;
     while (ani = animalsSprite.iterate()) {
         ani.setX(x);
-        if(aux==0)
+        if (aux == 0)
         {
             ani.setY(y);
-            aux=1;
-        }else
+            aux = 1;
+        } else
         {
             ani.setY(y2);
-            aux=0;
+            aux = 0;
         }
-        
+
         ani.update();
-        x += 110;
+        x += CANVAS_WIDTH / animalString.length;
     }
 
 }
 ;
-
+var interval;
 $(document).ready(function () {
+    
+    player.sprite.setY(CANVAS_WIDTH);
+    
     $.getJSON("json/data.json", function (data) {
         arrayAnimalsJson = data.words;
         createAnimals();
         drawAnimals();
         drawString();
     });
+
+
+
+
+    interval = setInterval(function () {
+        draw();
+        collision();
+        update();
+
+    }, 1000 / FPS);
 
 });

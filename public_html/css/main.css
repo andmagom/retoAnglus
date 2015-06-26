@@ -474,10 +474,10 @@ h5, h6          { font-weight: bolder }
     -webkit-border-radius: 30px 30px 30px 30px;
     border: 0px solid #000000;
     background-color: #034a96;
-    width: 150px;
+    width: 180px;
     height: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 300px;
+    vertical-align: middle;
 }
 
 .target2 p
@@ -487,9 +487,10 @@ h5, h6          { font-weight: bolder }
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
-	line-height: 15px;
+	line-height: 25px;
         color:white;
         text-align: center;
+        
 }
 
 .point
@@ -498,8 +499,9 @@ h5, h6          { font-weight: bolder }
     -moz-border-radius: 30px 30px 30px 30px;
     -webkit-border-radius: 30px 30px 30px 30px;
     border: 0px solid #000000;
-    background-color: #034a96;
-    width: 80px;
+    background-color: #ab000e;
+    width: 60px;
+    height: 20px;
 }
 
 .point p
@@ -509,7 +511,14 @@ h5, h6          { font-weight: bolder }
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
-	line-height: 15px;
+	line-height: 20px;
         color:white;
         text-align: center;
+}
+
+#sjs0
+{
+     border-style: solid;
+    border-color: #98bf21;
+    border-width: 5px;
 }
