@@ -1,0 +1,25 @@
+{ 
+    "name": "Animales",
+    "words": [
+        {
+            "name": "cerdo",
+            "image": "img/cerdo.png"  
+        },
+        {
+            "name": "elefante",     
+            "image": "img/elefante.png"
+        },
+        {
+            "name": "mono",
+            "image": "img/mono.png"
+        },
+        {
+            "name": "pinguino",
+            "image": "img/pinguino.png" 
+        },
+        {
+            "name": "tigre",
+            "image": "img/tigre.png"
+        }
+    ]
+}
